@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE en-export SYSTEM "http://xml.evernote.com/pub/evernote-export3.dtd">
+<en-export export-date="20170802T141503Z" application="Evernote" version="Evernote Mac 6.11.1 (455061)">
+<note><title>函数</title><content><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE en-note SYSTEM "http://xml.evernote.com/pub/enml2.dtd">
+<en-note><div>1. 函数的声明：</div><div>- 函数命令、<span style="orphans: 2; widows: 2;">函数赋值语句、</span><span style="orphans: 2; widows: 2;">Function构造</span><br/></div><div><span style="orphans: 2; widows: 2;"><br/></span></div><div><span style="orphans: 2; widows: 2;">2. 第一等公民</span></div><div><br/></div><div><span style="orphans: 2; widows: 2;">3. 函数名提升：如果同时采用function命令和函数赋值表达式声明同一个函数，总是采用函数赋值语句</span></div><div><br/></div><div><span style="orphans: 2; widows: 2;">4. 不要在try、if语句中声明函数</span></div><div><span style="orphans: 2; widows: 2;"><br/></span></div><div><span style="orphans: 2; widows: 2;">5. 函数属性：name 、length参数个数、toString返回源码（可以变相返回多行字符串）</span></div><div><span style="orphans: 2; widows: 2;"><br/></span></div><div><span style="orphans: 2; widows: 2;">6.函数作用域：</span></div><div style="orphans: 2; widows: 2;">JavaScript中存在两种函数作用域：全局作用域、函数作用域</div><div style="orphans: 2; widows: 2;"><br/></div></en-note>
+]]></content><created>20170802T082217Z</created><updated>20170802T082400Z</updated><note-attributes><latitude>31.98611567654745</latitude><longitude>118.7587389941679</longitude><altitude>61.51672744750977</altitude><author>18851280888@163.com</author><source>desktop.mac</source><reminder-order>0</reminder-order></note-attributes></note>
+</en-export>
