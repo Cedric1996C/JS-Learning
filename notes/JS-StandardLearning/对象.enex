@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE en-export SYSTEM "http://xml.evernote.com/pub/evernote-export3.dtd">
+<en-export export-date="20170803T085344Z" application="Evernote" version="Evernote Mac 6.11.1 (455061)">
+<note><title>对象</title><content><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE en-note SYSTEM "http://xml.evernote.com/pub/enml2.dtd">
+<en-note><div>1.JS规定，如果行首是大括号，一律解释为语句（ 即代码块 ）。如果要解释成对象，需要在大括号前加上圆括号。</div><div><br/></div><div>2.读取对象中的属性，可以用点运算符或者方括号运算符。使用方括号，可能的变量名必须放在引号中</div><div><br/></div><div>3.可以用全局对象window来检验变量是否被声明了</div><div><br/></div><div>4.查看一个对象的所有属性：Object.keys 方法</div><div><br/></div><div>5.删除属性：delete</div><div><br/></div><div>6.判断键名是否存在：in语句，遍历对象自身属性；for...in 语句，可以遍历到继承到的属性</div><div><br/></div><div><div>7.with语句：</div><div>- 提供区块对对象的多个属性进行赋值</div><div>- with区块的作用域是当前作用域</div><div>- with语句有用的场合：替换模板变量</div><div>- with区块内部，模板变量可以被传入的对象的属性替换，而整个语句可以对全局变量赋值。这就是很多模板引擎的实现原理</div><div><br/></div><div><br/></div><ol start="7"/></div><div><br/></div></en-note>
+]]></content><created>20170803T064825Z</created><updated>20170803T085327Z</updated><note-attributes><latitude>31.9861219256588</latitude><longitude>118.7587776249262</longitude><altitude>61.10381698608398</altitude><author>18851280888@163.com</author><source>desktop.mac</source><reminder-order>0</reminder-order></note-attributes></note>
+</en-export>

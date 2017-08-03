@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE en-export SYSTEM "http://xml.evernote.com/pub/evernote-export3.dtd">
+<en-export export-date="20170803T065041Z" application="Evernote" version="Evernote Mac 6.11.1 (455061)">
+<note><title>闭包</title><content><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE en-note SYSTEM "http://xml.evernote.com/pub/enml2.dtd">
+<en-note><div>链式作用域：</div><div>- 函数外部无法获取函数内部的变量</div><div>- 子对象会一层层的向父对象寻找变量，父对象的所有变量子对象可见，反之不成立</div><div><br/></div><div>闭包：读取其他函数内部变量的函数，即定义在函数内部的函数</div><div>- 函数闭包会记住他被定义的环境，即函数内部</div><div>- 本质：函数内部和外部的桥梁</div><div>- 作用：1.读取函数内部的变量 <span>    </span>2.使这些变量一直存在内存中，即闭包使得诞生环境一直存在</div><div>- 闭包可以看作是函数内部作用域的一个接口</div><div>- 闭包可以返回对象的私有属性和私有方法</div><div>注意：外层函数每次运行，都会生成一个新的闭包，而闭包会保留外层函数的内部变量，所以内存消耗很大。因此滥用闭包会导致浏览器的性能问题</div><div><br/></div><div>立即调用的函数表达式：IIFE ( immediately-invoked function expression )</div><div>- 通常只有匿名函数使用</div><div>- 不必为函数命名，避免了污染全局变量</div><div>- 形成一个单独的作用域，可以封装一些外部无法读取的私有变量</div><div><br/></div><div><br/></div></en-note>
+]]></content><created>20170803T030915Z</created><updated>20170803T060235Z</updated><note-attributes><latitude>31.98611487343134</latitude><longitude>118.7587733068392</longitude><altitude>61.2830924987793</altitude><author>18851280888@163.com</author><source>desktop.mac</source><reminder-order>0</reminder-order></note-attributes></note>
+</en-export>

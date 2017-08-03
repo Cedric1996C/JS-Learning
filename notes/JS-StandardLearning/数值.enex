@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE en-export SYSTEM "http://xml.evernote.com/pub/evernote-export3.dtd">
+<en-export export-date="20170803T065047Z" application="Evernote" version="Evernote Mac 6.11.1 (455061)">
+<note><title>数值</title><content><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE en-note SYSTEM "http://xml.evernote.com/pub/enml2.dtd">
+<en-note><div>基本属性：</div><div>1.JS语言没有整数，所有的数字都是64位浮点数。由于浮点数不是精确的值，设计小数的运算要小心</div><div>2.数值精度：2^53</div><div>3.数值范围：2^1024 - 2^-1023</div><div>4.默认情况下，JS会将所有的数字自动转换为10进制表示</div><div><br/></div><div>特殊数值：</div><div><div>1.+0 -0</div><div>2.NaN：字符串被错误的解析出数字</div><div>3.Infinity：无穷，分为 +Infinity、-Infinity</div><ol start="1"/></div><div><br/></div><div>与数值相关的全局方法：</div><div>1.parseInt ( ) ：字符串转换为数字</div><div>- 返回结果为：十进制数 or NaN</div><div>- 可接受第二个参数，表示被转化的字符串的进制 2-36</div><div><br/></div><div>2.parseFloat ( )：字符串转换为浮点数</div></en-note>
+]]></content><created>20170803T061715Z</created><updated>20170803T064648Z</updated><note-attributes><latitude>31.9861263946175</latitude><longitude>118.7587327004606</longitude><altitude>61.76605224609375</altitude><author>18851280888@163.com</author><source>desktop.mac</source><reminder-order>0</reminder-order></note-attributes></note>
+</en-export>
