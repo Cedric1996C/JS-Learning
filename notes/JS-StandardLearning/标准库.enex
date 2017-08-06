@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE en-export SYSTEM "http://xml.evernote.com/pub/evernote-export3.dtd">
+<en-export export-date="20170804T070257Z" application="Evernote" version="Evernote Mac 6.11.1 (455061)">
+<note><title>标准库</title><content><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE en-note SYSTEM "http://xml.evernote.com/pub/enml2.dtd">
+<en-note><div>Array：</div><div>1.shift和push的结婚 使用，构成了先进先出的队列结构；push和pop结合使用，构成先进先出的栈结构</div><div><br/></div><div>2.splice方法的灵活使用：删除起始位置，删除个数，插入元素</div><div>- 通过删除个数赋值0，直接插入</div><div>- 可以做数组切分</div><div><br/></div><div>3.sort方法默认按照字典序排序</div><div>- 如果要自定义排序，传入一个函数参数，函数返回值&gt;0，第一个数排在前面，反之相反</div><div><br/></div><div>4.map方法对数组的所有成员依次调用一个函数，根据函数结果返回一个新的数组</div><div>- map函数传入3个参数：elem index array</div><div>- map方法可以接受第二个参数，表示回调函数this指向的对象<br/></div><div><br/></div><div>5.forEach方法只进行操作，不返回值（对比map）</div><div><br/></div><div>6.filter方法：数组成员执行函数，返回结果为true的成员组成一个新的数组。这个方法不会改变原数组</div><div><br/></div><div>7.some every方法：用来判断是否符合某种条件的断言</div><div><br/></div><div>8.reduce、reduceRight方法：依次处理数组的每个成员，并累计一个值</div><div><br/></div><div>9.indexOf、lastIndexOf方法</div><div><br/></div><div>10.这些方法中很多返回值为数组，所以可以进行链式使用</div><div><br/></div><div><br/></div></en-note>
+]]></content><created>20170803T085346Z</created><updated>20170804T031048Z</updated><note-attributes><latitude>31.98614956103156</latitude><longitude>118.7587495907157</longitude><altitude>61.68102645874023</altitude><author>18851280888@163.com</author><source>desktop.mac</source><reminder-order>0</reminder-order></note-attributes></note>
+</en-export>
