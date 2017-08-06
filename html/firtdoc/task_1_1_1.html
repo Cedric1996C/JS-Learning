@@ -3,28 +3,28 @@
 <head>
 	<meta charset="utf-8">
 	<title>html基础入门练习</title>
+	<link rel="stylesheet" type="text/css" href="style1.css">
 </head>
 <body>
-	<h1>网站一级标题</h1>
-	<ul>
+	<ul class="navigation-bar">
 		<li><a href='http://www.baidu.com'>导航链接一</a></li>
 		<li><a href='http://www.baidu.com'>导航链接二</a></li>
 		<li><a href='http://www.baidu.com'>导航链接三</a></li>
 		<li><a href='http://www.baidu.com'>导航链接四</a></li>
 	</ul>
-	<div>
+	<div class="content-block">
 		<h2>文章一级标题</h2>
 		<h2>文章二级标题</h2>
 		<p>文章作者 文章发布时间</p>
 		<p>这是一个很长很长的段落，很长很长的段落，很长很长的段落，很长很长的段落，很长很长的段落，很长很长的段落，很长很长的段落，很长很长的段落，很长很长很长很长的段落，换行了</p>
-		<p>这是一个很长很长的段落，很长很长的段落，很长很长的段落，很长很长的段落，很长很长的段落，很长很长的段落，很长很长的段落，很长很长的段落，换行了</p>
+		<span>这是一个很长很长的段落，很长很长的段落，很长很长的段落，很长很长的段落，很长很长的段落，很长很长的段落，很长很长的段落，很长很长的段落，换行了<br></span>
 		<p>这是一个很长很长的段落，很长很长的段落，很长很长的段落，<a href='#'>这里有一个超链接</a>很长很长的段落，很长很长的段落，很长很长的段落，很长很长的段落，很长很长的段落,这是一个很长很长的段落，很长很长的段落，很长很长的段落，<strong>z这是一个粗体字</strong>很长很长的段落，很长很长的段落，很长很长的段落，很长很长的段落，很长很长的段落</p>
 		<img src="image/task.jpg">
 		<p>这是一个很长很长的段落，很长很长的段落，很长很长的段落，很长很长的段落，很长很长的段落，很长很长的段落，很长很长的段落，很长很长的段落，很长很长很长很长的段落，换行了</p>
 		<p>这是一个很长很长的段落，很长很长的段落，很长很长的段落，很长很长的段落，很长很长的段落，很长很长的段落，很长很长的段落，很长很长的段落，换行了</p>
 		<p>这是一个很长很长的段落，很长很长的段落，很长很长的段落，<a href='#'>这里有一个超链接</a>很长很长的段落，很长很长的段落，很长很长的段落，很长很长的段落，很长很长的段落,这是一个很长很长的段落，很长很长的段落，很长很长的段落，<strong>这是一个粗体字</strong>很长很长的段落，很长很长的段落，很长很长的段落，很长很长的段落，很长很长的段落</p>
 	</div>
-	<div>
+	<div class="content-block">
 		<h2>另一篇文章一级标题</h2>
 		<h2>文章二级标题</h2>
 		<p>文章作者 文章发布时间</p>
@@ -32,25 +32,34 @@
 		<p>这是一个很长很长的段落，很长很长的段落，很长很长的段落，很长很长的段落，很长很长的段落，很长很长的段落，很长很长的段落，很长很长的段落，换行了</p>
 		<p>这是一个很长很长的段落，很长很长的段落，很长很长的段落，<a href='#'>这里有一个超链接</a>很长很长的段落，很长很长的段落，很长很长的段落，很长很长的段落，很长很长的段落,这是一个很长很长的段落，很长很长的段落，很长很长的段落，<strong>z这是一个粗体字</strong>很长很长的段落，很长很长的段落，很长很长的段落，很长很长的段落，很长很长的段落</p>
 		<img src="image/task.jpg">
-		<ul>
-			<li>列表项目一</li>
-			<li>列表项目二</li>
-			<li>列表项目三</li>
-		</ul>
+		<dl>
+			<dd>列表项目一</dd>
+			<dd>列表项目二</dd>
+			<dd>列表项目三</dd>
+		</dl>
+	</div>
+	<div class="content-block">
 		<h2>图片</h2>
 		<ul>
-			<p>好看的图片<br><img src="image/task.jpg"></p>
-			<p>好看的图片<br><img src="image/task.jpg"></p>
-			<p>好看的图片<br><img src="image/task.jpg"></p>
-			<p>好看的图片<br><img src="image/task.jpg"></p>
-			<p>好看的图片<br><img src="image/task.jpg"></p>
-			<p>好看的图片<br><img src="image/task.jpg"></p>
-			<p>好看的图片<br><img src="image/task.jpg"></p>
-			<p>好看的图片<br><img src="image/task.jpg"></p>
-			<p>好看的图片<br><img src="image/task.jpg"></p>
-		</ul>>
+			<div class="pic">
+			<span>好看的图片</span>
+			<img src="image/task.jpg">
+			</div>
+			<div class="pic">
+			<span>好看的图片</span>
+			<img src="image/task.jpg">
+			</div>
+			<div class="pic">
+			<span>好看的图片</span>
+			<img src="image/task.jpg">
+			</div>
+			<div class="pic">
+			<span>好看的图片</span>
+			<img src="image/task.jpg">
+			</div>
+		</ul>
 	</div>
-	<div>
+	<div class="content-block">
 		<h2>另一篇文章一级标题</h2>
 		<h2>文章二级标题</h2>
 		<p>文章作者 文章发布时间</p>
@@ -92,7 +101,7 @@
 			</tr>	
 		</table>
 	</div>
-	<div>
+	<div class="content-block">
 		<h2>这里以后是一个侧栏，这是侧栏的标题</h2>
 		<h2>侧栏注册窗口标题</h2>
 		<form>
@@ -122,5 +131,6 @@
 			</div>
 		</form>		
 	</div>
+	<label>版权所有©</label>
 </body>
 </html>
