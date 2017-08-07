@@ -36,11 +36,10 @@ body {
 
 .pic {
 	height: 150px;
-	width: 100px;
-	border: 2px, solid, grey;
+	width: 150px;
+	border: 2px solid #ee80db;
 	margin: 20px;
 	text-align: center;
-	/*font: 10px;*/
 	padding: 10px;
 }
 
@@ -48,6 +47,93 @@ body {
 	margin: 5px;
 	width: auto;
 	height: auto;
-	max-width: 100%;			
-	max-height: 100%;
+	max-width: 90%;			
+	max-height: 90%;
+}
+
+table,th,tr,td {
+	border: 1px solid #ccc;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+table th {
+	text-align: left;
+	color: #fff;
+	background-color: #333;
+}
+
+.sum {
+	background-color: #ccc;
+}
+
+#quato {
+	border-left: 3px solid #aaa;
+	padding-left: 10px;
+	line-height: 2em;
+}
+
+form {
+	width:60%;
+	display: table;
+	margin: 0 auto;
+}
+
+form div {
+	display: table-row;
+	height: 30px;
+}
+
+form label, form input {
+  display: table-cell;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+form label {
+	width: 45%;
+	padding-right: 5%;
+	text-align: right;
+}
+
+.notion {
+	color: #ccc;
+	display: block;
+	height: 30px;
+	line-height: 30px;
+	font-size: 12px;
+}
+
+#info {
+	height: 150px;
+}
+
+#info textarea{
+	position: absolute;
+	margin-top: 5px;
+	height: 100px;
+	width: 500px;
+}
+
+.input-button {
+	display: block;
+	width:90%;
+	margin:0 auto;
+	height: 40px;
+	border-radius: 5px;
+	background-color: blue;
+	color: white;
+}
+
+.footer {
+	background-color: rgba(0,0,0,0.85);
+	height: 50px;
+	width: 100%;
+	margin-bottom: 0;
+	text-align: center;
+	color: white;
+	line-height: 50px;
 }
