@@ -1,0 +1,9 @@
+.num {
+	float:left;
+	background-color: red;
+	color: #fff;
+	height: 60px;
+	line-height: 60px;
+	padding: 20px;
+	margin: 10px;
+}
