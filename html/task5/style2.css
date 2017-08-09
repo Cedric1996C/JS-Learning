@@ -1,0 +1,29 @@
+#main-content {
+	position: relative;
+}
+
+#content-box {
+	position: relative;
+	padding: 20px;
+	margin-right: 410px;
+}
+
+#side-bar {
+	position: fixed;
+	width:350px;
+	margin: 0;
+	top: 70px;
+	right: 20px;
+}
+
+.group:before,
+.group:after {
+  content: "";
+  display: table;
+}
+.group:after {
+  clear: both;
+}
+.group {
+  *zoom: 1;
+}
