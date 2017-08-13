@@ -1,0 +1,16 @@
+#box {
+	margin-top: 20px;
+}
+
+textarea {
+	height: 40px;
+	width: 200px;
+}
+
+.num {
+	float:left;
+	background-color: red;
+	color: #fff;
+	padding: 10px;
+	margin: 10px;
+}
