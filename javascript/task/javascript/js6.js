@@ -30,6 +30,9 @@ window.onload=function(){
 	function check(){
 		var reg = textNum.value;
 		var words = dataBox.childNodes;
+		for(var i=0;i<words.length;i++){
+			
+		}
 		showData()
 	};
 
