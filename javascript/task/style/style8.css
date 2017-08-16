@@ -1,0 +1,39 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+container {
+	padding: 20px;
+	height: 500px;
+	width: 90%;
+}
+
+.container * {
+	border: 1px solid #ccc;
+	height: 80%;
+	margin: 10px;
+	padding:  10px;
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.container div {
+	background-color: #fff;
+}
+
+.sorts {
+	padding: 10px;
+}
+
+.sorts input {
+	height: 30px;
+	width: auto;
+}
+
+div .chosen {
+	background-color: blue;
+}
