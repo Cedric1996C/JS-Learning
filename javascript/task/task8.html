@@ -4,7 +4,8 @@
 	<meta charset="utf-8">
 	<title>javascript练习8</title>
 	<link rel="stylesheet" type="text/css" href="style/style8.css">
-	<script type="text/javascript" src="javascript/js8.js"></script>
+	<script src="javascript/require.js" defer async="true" ></script>
+	<script src="javascript/require.js" data-main="javascript/js8" ></script>
 </head>
 <body>
 	<div class="container">
@@ -61,9 +62,10 @@
 		</div>
 	</div>
 	<div class="sorts">
-		<input type="button" name="forward" value="前序遍历">
-		<input type="button" name="middle" value="中序遍历">
-		<input type="button" name="back" value="后序遍历">
+		<input type="button" name="forward" value="深度遍历">
+		<input type="button" name="back" value="广度遍历">
+		<input type="ratio" name="keyword" placeholder="请输入查询内容">
+		<input type="button" name="search" value="查询">
 	</div>
 </body>
 </html>

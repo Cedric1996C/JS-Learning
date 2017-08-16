@@ -1,95 +1,66 @@
-var buttons = document.getElementsByTagName('input');
-var nodes = [];
+require(['tree'], function(tree){
+　　　　// some code here
+	var buttons = document.getElementsByTagName('input');
+	var nodes = [];
+	var treeRoot = init();
 
-function Node(dom,left,right){
-	this.dom = dom
-	this.left = left;
-	this.right = right;
-}
-
-function changeColor(node){
-	node.setAttribute('class','chosen');
-	setTimeout(function(){
-		node.removeAttribute('class');
-	},1000);
-}
-
-function travel(){
-	var i=0;
-	var tra = setInterval(function(){
-		if(i<nodes.length){
-			changeColor(nodes[i++]);
-		} else {
-			clearInterval(tra);
-		}
-	},1000)
-}
-
-function forward_tra(node){
-
-	nodes.push(node.dom);
-	if(node.left != null){
-		forward_tra(node.left);
+	function changeColor(node){
+		node.setAttribute('class','chosen');
+		setTimeout(function(){
+			node.removeAttribute('class');
+		},500);
 	}
-	if(node.right != null){
-		forward_tra(node.right);
+
+	function travel(){
+		var i=0;
+		var tra = setInterval(function(){
+			if(i<nodes.length){
+				changeColor(nodes[i++]);
+			} else {
+				clearInterval(tra);
+			}
+		},500)
 	}
-}
 
-function middle_tra(node){
-	if(node.left != null){
-		middle_tra(node.left);
+	function initTree(temp){
+		var dom = temp.data;
+		if(dom !== undefined && dom.hasChildNodes()){
+			for(var children = dom.children,i=0;i<children.length;i++){
+				var node = new tree.Node(children[i]);
+				node.parent = temp;
+				temp.children.push(node);
+				initTree(node);
+			}
+		} 
 	}
-	nodes.push(node.dom);
-	if(node.right != null){
-		middle_tra(node.right);
+
+	function init(){
+		var rootNode = document.getElementsByTagName('div')[1];
+		var localTree = new tree.Tree(rootNode);	
+		initTree(localTree.root);
+		return localTree;
 	}
-}
-
-function back_tra(node){
-	if(node.left != null){
-		back_tra(node.left);
-	} 
-	if(node.right != null) {
-		back_tra(node.right);
-	} 
-	nodes.push(node.dom);
-}
-
-function findKey(word) {
-
-}
-
-function insert(temp){
-	var node;
-	if(temp !== undefined && temp.hasChildNodes()){
-		var children = temp.children;
-		node = new Node(temp,insert(children[0]),insert(children[1]));
-	} else {
-		node = new Node(temp,null,null);
-	}
-	return node;
-}
-
-window.onload = function(){
-
-	var rootNode = document.getElementsByTagName('div')[1];
-	//二叉树的头结点
-	var temp = insert(rootNode);
 
 	buttons[0].onclick = function(){
-		forward_tra(temp);
+		nodes = [];
+		treeRoot.travelDF(function(node) {
+   			 nodes.push(node.data)
+		});
 		travel();
 	}
 
 	buttons[1].onclick = function(){
-		middle_tra(temp);
+		// var treeRoot = init();
+		nodes = [];
+		treeRoot.travelBF(function(node) {
+			 nodes.push(node.data)
+		});
 		travel();
 	}
 
-	buttons[2].onclick = function(){
-		back_tra(temp);
-		travel();
+	buttons[3].onclick = function(){
+		var keyword = buttons[2].value;
+		console.log(keyword);
 	}
 
-}
+});
