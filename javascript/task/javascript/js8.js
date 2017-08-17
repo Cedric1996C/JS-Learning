@@ -4,22 +4,22 @@ require(['tree'], function(tree){
 	var nodes = [];
 	var treeRoot = init();
 
-	function changeColor(node){
+	function changeColor(node,time){
 		node.setAttribute('class','chosen');
 		setTimeout(function(){
 			node.removeAttribute('class');
-		},500);
+		},time);
 	}
 
-	function travel(){
+	function travel(time){
 		var i=0;
 		var tra = setInterval(function(){
 			if(i<nodes.length){
-				changeColor(nodes[i++]);
+				changeColor(nodes[i++],time);
 			} else {
 				clearInterval(tra);
 			}
-		},500)
+		},time)
 	}
 
 	function initTree(temp){
@@ -41,26 +41,57 @@ require(['tree'], function(tree){
 		return localTree;
 	}
 
+	var keywordSearch = function(callback,keyword,time){
+		nodes = [];
+		var results = [];
+		treeRoot.travelDF(function(node) {
+   			 nodes.push(node.data)
+		});
+		var i=0;
+		var count=0;
+		var word = new RegExp(keyword);
+		var tra = setInterval(function(){
+			if(i<nodes.length){
+				if(nodes[i].firstChild.data.match(word)){
+					results.push(nodes[i]);
+				}
+				changeColor(nodes[i++],time);
+			} else {
+				clearInterval(tra);
+				callback(results);
+			}
+		},time)
+	}
+
 	buttons[0].onclick = function(){
 		nodes = [];
 		treeRoot.travelDF(function(node) {
    			 nodes.push(node.data)
 		});
-		travel();
+		travel(500);
 	}
 
 	buttons[1].onclick = function(){
-		// var treeRoot = init();
 		nodes = [];
 		treeRoot.travelBF(function(node) {
 			 nodes.push(node.data)
 		});
-		travel();
+		travel(500);
 	}
 
 	buttons[3].onclick = function(){
 		var keyword = buttons[2].value;
-		console.log(keyword);
+		if (keyword && keyword!='') {
+			keywordSearch(function(result){
+				if(result.length > 0){
+					result.forEach(function(node){
+						node.setAttribute('class','chosen');
+					})
+				} else {
+					alert('没有匹配到符合的结果！');
+				}
+			},keyword,300);
+		}
 	}
 
 });
