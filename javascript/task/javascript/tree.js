@@ -34,6 +34,28 @@ define(function (){
 		}
 	};
 
+	Node.prototype.addNode = function(callback) {
+		(function add(currentNode){
+			var node = new Node(null);
+			node.parent = currentNode;
+			currentNode.children.push(node);
+			node.children = [];
+			callback(node);
+		})(this)
+	};
+
+	Node.prototype.removeNode = function(callback) {
+		(function remove(currentNode){
+			var parentNode = currentNode.parent;
+			for(var i=0,children=parentNode.children;i<children.length;i++){
+				if(children[i].data.firstChild.data === currentNode.data.firstChild.data ){
+					callback();
+					break;
+				}
+			};
+		})(this)
+	}
+
 	return {
 		Node: Node,
 		Tree: Tree
