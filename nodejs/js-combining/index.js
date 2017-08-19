@@ -45,6 +45,40 @@ function parseURL(root, url){
 	}
 }
 
+function validateFiles(pathnames,callback){
+
+	(function next(index,len){
+		if(index<len){
+			fs.stat(pathnames[index],function(err,stats){
+				if(err){
+					callback(err);
+				} else if (!stats.isFile()){
+					callback(new err);
+				} else {
+					next(index+1,len);
+				}
+			});
+		} else {
+			callback(null,pathnames);
+		}
+	}(0,pathnames.length));
+}
+
+function outputFiles(pathnames,writer){
+	(function next(index,len){
+		if(index<len){
+			var reader = fs.createReadStream(pathnames[index]);
+
+			reader.pipe(writer,{end:false});
+			reader.on('end',function(){
+				next(index+1,len);
+			});
+		} else {
+			writer.end();
+		}
+	}(0,pathnames.length))
+}
+
 function main(args){
 	var config = JSON.parse(fs.readFileSync(args[0], 'utf-8')),
 		root = config.root || '.',
@@ -53,19 +87,19 @@ function main(args){
 	http.createServer(function(request,response){
 		var urlInfo = parseURL(root,request.url);
 
-		combineFiles(urlInfo['pathnames'],function(err,result){
-			if(err) {
-				response.writeHead(404);
-				response.end(err.message);
-			} else {
-				response.writeHead(200, {
-                    'Content-Type': urlInfo.mime
-                });
-                response.end(result);
-			}
-		});
+	    validateFiles(urlInfo.pathnames, function (err, pathnames) {
+	        if (err) {
+	            response.writeHead(404);
+	            response.end(err.message);
+	        } else {
+	            response.writeHead(200, {
+	                'Content-Type': urlInfo.mime
+	            });
+	            outputFiles(pathnames, response);
+	        }
+	    });
 
-	}).listen(port);
+    }).listen(port);
 
 }
 
