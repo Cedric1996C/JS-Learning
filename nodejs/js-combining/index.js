@@ -7,24 +7,24 @@ var MIME = {
 	'.js' : 'application/javascript'
 }
 
-function combineFiles(pathnames,callback){
-	var output = [];
+// function combineFiles(pathnames,callback){
+// 	var output = [];
 
-	(function next(index,len){
-		if(index<len){
-			fs.readFile(pathnames[index],function(err,data){
-				if(err){
-					callback(err);
-				} else {
-					output.push(data);
-					next(index+1,len);
-				}
-			});
-		} else {
-			callback(null,Buffer.concat(output));
-		}
-	}(0,pathnames.length));
-}
+// 	(function next(index,len){
+// 		if(index<len){
+// 			fs.readFile(pathnames[index],function(err,data){
+// 				if(err){
+// 					callback(err);
+// 				} else {
+// 					output.push(data);
+// 					next(index+1,len);
+// 				}
+// 			});
+// 		} else {
+// 			callback(null,Buffer.concat(output));
+// 		}
+// 	}(0,pathnames.length));
+// }
 
 function parseURL(root, url){
 	var base,pathname,parts;
@@ -82,9 +82,10 @@ function outputFiles(pathnames,writer){
 function main(args){
 	var config = JSON.parse(fs.readFileSync(args[0], 'utf-8')),
 		root = config.root || '.',
-		port = config.port || 80 ;
+		port = config.port || 80 ,
+		server;
 
-	http.createServer(function(request,response){
+	server = http.createServer(function(request,response){
 		var urlInfo = parseURL(root,request.url);
 
 	    validateFiles(urlInfo.pathnames, function (err, pathnames) {
@@ -100,6 +101,12 @@ function main(args){
 	    });
 
     }).listen(port);
+
+	process.on('SIGTERM', function () {
+        server.close(function(){
+            process.exit(0);
+        });
+    });
 
 }
 
