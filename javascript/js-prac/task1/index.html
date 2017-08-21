@@ -1,22 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>单个表单项验证</title>
-	<link rel="stylesheet" type="text/css" href="style.scss">
-	<script type="text/javascript" src="email-validation.js"></script>
+	<meta charset="utf-8">
+	<title>custom-form</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="task.js"></script>
 </head>
 <body>
-	<form>
-	  <p>
-	    <label for="mail">
-	        <span>Please enter an email address:</span>
-	        <input type="text" class="mail" id="mail" name="mail">
-	        <span class="error" aria-live="polite"></span>
-	    </label>
-	  <p>
-	  <!-- Some legacy browsers need to have the `type` attribute
-	       explicitly set to `submit` on the `button`element -->
-	  <button type="submit">Submit</button>
+	<form id="name">
+		<label for="user">名称</label>
+		<div class="column">
+		<input type="text" name="user" id="user">
+		<span class="red">必填，长度为4-16个字符</span>
+		</div>
+		<button>验证</button>
 	</form>
 </body>
 </html>
