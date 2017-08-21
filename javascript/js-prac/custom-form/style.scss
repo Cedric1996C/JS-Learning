@@ -1,55 +1,23 @@
-body {
-  font: 1em sans-serif;
-  padding: 0;
-  margin : 0;
-}
+.select {
+  /* This will create a positioning context for the list of options */
+  position: relative;
+  display : inline-block;
 
-form {
-  max-width: 200px;
-}
-
-p * {
-  display: block;
-}
-
-input[type=email]{
-  -webkit-appearance: none;
-
-  width: 100%;
-  border: 1px solid #333;
-  margin: 0;
-
-  font-family: inherit;
-  font-size: 90%;
-
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-/* This is our style for the invalid fields */
-input:invalid{
-  border-color: #900;
-  background-color: #FDD;
-}
-
-input:focus:invalid {
-  outline: none;
-}
-
-/* This is the style of our error messages */
-.error {
-  width  : 100%;
-  padding: 0;
+  &.active ,&:focus{
+    outline: none;
+    box-shadow: 0 0 3px 1px #227755;
+  }
  
-  font-size: 80%;
-  color: white;
-  background-color: #900;
-  border-radius: 0 0 5px 5px;
- 
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
+  .optList {
+    position: absolute;
+    top:100%;
+    left:0;
 
-.error.active {
-  padding: 0.3em;
+    &.hidden {
+      max-height: 0;
+      visibility: hidden;
+    }
+
+  }
+
 }
