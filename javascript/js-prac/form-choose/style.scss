@@ -1,0 +1,47 @@
+body {
+  font: 1em sans-serif;
+  padding: 0;
+  margin : 0;
+  box-sizing:border-box;
+}
+
+form {
+	position: relative;
+	width:50%;
+
+	margin-top: 10px;
+	margin: 0 auto;
+	padding: 10px;
+
+	div {
+		&:nth-of-type(1){
+			display: flex;
+		}
+		flex-wrap: row wrap;
+		align-items: flex-start;
+		justify-content: space-around;
+
+		height:60px;
+		padding:10px;
+	}
+	
+	div:nth-of-type(2),div:nth-of-type(3){
+
+		label {
+			width:20%;
+			line-height: 30px;
+			text-align: center;
+		}
+
+		select {
+			display: inline-block;
+			height:30px;
+			&:nth-of-type(1){
+				width: 25%;
+			}
+			&:nth-of-type(2){
+				width: 40%;
+			}
+		}
+	}
+}

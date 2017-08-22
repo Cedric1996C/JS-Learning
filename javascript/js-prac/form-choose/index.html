@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>表单联动练习</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="task.js"></script>
+</head>
+<body>
+	<form>
+		<div class="row">
+			<p>
+			<input type="radio" id="in-school" name="student" checked="true">
+			<label for="in-school">在校生</label>
+			</p>
+			<p>
+			<input type="radio" id="out-school" name="student">
+			<label for="out-school">走读生</label>
+			</p>
+		</div>
+		<div class="row">
+			<label for="school">学校</label>
+			<select>
+				<optgroup label="城市">
+					<option>北京</option>
+					<option>南京</option>
+					<option>北京</option>
+					<option>南京</option>
+					<option>北京</option>
+					<option>南京</option>
+				</optgroup>
+			</select>
+			<select>
+				<optgroup label="学校">
+					<option>北京</option>
+					<option>南京</option>
+				</optgroup>
+			</select>
+		</div>
+		<div class="row">
+			<label for="compony">就业单位</label>
+			<input type="text" name="company" id="compony" style="display:inline-block;width:60%;height:30px;border-radius: 5px;border:1px solid #ccc;">
+		</div>
+	</form>
+</body>
+</html>
