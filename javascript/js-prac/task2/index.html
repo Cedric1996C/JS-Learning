@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>custom-form</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="task.js"></script>
+</head>
+<body>
+	<form id="name" class="clearfix">
+		<ul style="list-style: none;margin: 0;padding: 10px;width: 100%;">
+			<li>
+				<label for="user">名称</label>
+				<div class="column">
+				<input type="text" name="user" id="user">
+				<span>必填，长度为4-16个字符</span>
+				</div>
+			</li>
+			<li>
+				<label for="password">密码</label>
+				<div class="column">
+				<input type="password" name="password" id="password">
+				</div>
+			</li>
+			<li>
+				<label for="confirm">密码确认</label>
+				<div class="column">
+				<input type="password" name="confirm" id="confirm">
+				</div>
+			</li>
+			<li>
+				<label for="email">邮箱</label>
+				<div class="column">
+				<input type="email" name="email" id="email">
+				</div>
+			</li>
+			<li>
+				<label for="mobile">手机</label>
+				<div class="column">
+				<input type="text" name="mobile" id="mobile">
+				</div>
+			</li>
+		</ul>
+		<button>验证</button>
+	</form>
+</body>
+</html>
