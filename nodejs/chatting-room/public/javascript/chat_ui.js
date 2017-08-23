@@ -1,3 +1,5 @@
+window.onload = function(){
+
 function divEscapedContentElement(mes){
 	return $('<div></div').text(mes);
 }
@@ -14,16 +16,15 @@ function processUserInput(chatApp,socket){
 	var message = $('input').val();
 	var systemMessage;
 
-	if(message.chatAt(0) == '/'){
+	if(message.charAt(0) == '/'){
 		systemMessage = chatApp.processCommand(message);
 		if(systemMessage){
 			$('#chat-area').append(divSystemContentElement(systemMessage));
 		}
-		else {
-			chatApp.sendMessage($('#room-name').text(),message);
-			$('#chat-area').append(divEscapedContentElement(systemMessage));
-			$('#chat-area').scrollTop($('#chat-area').prop('scrollHeight'));
-		}
+	} else {
+		chatApp.sendMessage($('#room-name').text(),message);
+		$('#chat-area').append(divEscapedContentElement(message));
+		$('#chat-area').scrollTop($('#chat-area').prop('scrollHeight'));
 	}
 	$('input').val('');
 }
@@ -35,8 +36,9 @@ $(document).ready(function(){
 	var chatApp = new Chat(socket);
 	socket.on('nameResult',function(result){
 		var mes;
+		console.log(result);
 		if(result.success){
-			mes = 'You are now known as '+result.name+'.';
+			mes = 'You are now known as '+result.text+'.';
 		} else {
 			mes = result.text;
 		}
@@ -55,17 +57,21 @@ $(document).ready(function(){
 
 	socket.on('rooms',function(result){
 		$('#room-list').empty();
-		for(var room in result){
-			room = room.substring(1,room.length);
+		result.forEach(function(room){
 			if(room != ''){
 				$('#room-list').append(divEscapedRoom(room));
 			}
-		}
+		});
 
 		$('#room-list p').click(function(){
-			chatApp.processCommand('/join '+$(this).text());
+			chatApp.processCommand('/room '+$(this).text());
 			$('input').focus();
 		});
+	});
+
+	$('#room-list p').click(function(){
+		chatApp.processCommand('/room '+$(this).text());
+		$('input').focus();
 	});
 
 	//定期请求可用房间列表
@@ -80,3 +86,6 @@ $(document).ready(function(){
 	});
 
 });
+
+}
+

@@ -10,25 +10,27 @@ var currentRoom = {};
 function assignGuestName(socket,guestNumber,nickNames,nameUsed){
 	var name = "Guest"+guestNumber;
 	nickNames[socket.id] = name;
-	socket.emitter.emit('nameResult', {
+	socket.emit('nameResult', {
 		success : true,
 		name : name
 	});
 	nameUsed.push(name);
-	return guestNUmber++;
+	guestNumber += 1;
+		// console.log(nickNames[socket.id]);
+	return guestNumber;
 }
 
 //进入聊天室
 function joinRoom(socket,room){
 	socket.join(room);
 	currentRoom[socket.id] = room;
-	socket.emitter.emit('joinResult', { room: room });
+	socket.emit('joinResult', { room: room });
 	socket.broadcast.to(room).emit('message',{
-		text: nickNames[socket.id]+"has joined"+room
+		text: nickNames[socket.id]+" has joined "+room
 	});
 
-	var usersInRoom = io.sockets.client(room);
-	if( userInRoom.length>1){
+	var usersInRoom = io.of('/').in(room).clients;
+	if( usersInRoom.length>1){
 		var usersInRoomSummary = 'Users currently in '+room+': ';
 		for(var user in usersInRoom){
 			var socketId = usersInRoom[user].id;
@@ -38,12 +40,12 @@ function joinRoom(socket,room){
 		}		
 	} 
 
-	socket.emitter.emit('message', { text : usersInRoomSummary});
+	socket.emit('message', { text : usersInRoomSummary });
 }
 
 //处理更改名称的请求
 function handleNameChangeAttempts(socket,nickNames,nameUsed){
-	socket.on{'nameAttempt',function(name){
+	socket.on('nameAttempt',function(name){
 		if(name.indexOf('Guest') == 0){
 			socket.emit('nameResult', {
 				success:false,
@@ -52,16 +54,17 @@ function handleNameChangeAttempts(socket,nickNames,nameUsed){
 		} else {
 			if(nameUsed.indexOf(name) == -1){
 				var previousName = nickNames[socket.id];
-				var index = nickNames.idnexOf(previousName);
+				var nicks = Object.keys(nickNames);
+				var index = nicks.indexOf(previousName);
 				nameUsed.push[name];
 				nickNames[socket.id] = name;
 				delete nameUsed[index];
-				socket.emitter.emit('nameResult', {
+				socket.emit('nameResult', {
 					success: true,
 					text: name
 				});
 				socket.broadcast.to(currentRoom[socket.id]).emit('message',{
-					text: previousName+' has changed his name to '+name;
+					text: previousName+' has changed his name to '+name
 				});
 			} else {
 				socket.emit('nameResutl',{
@@ -70,23 +73,25 @@ function handleNameChangeAttempts(socket,nickNames,nameUsed){
 				});
 			}
 		}
-	}};
+		console.log('name changed');
+	});
 }
 
 //消息广播
 function handleMessageBroadcasting(socket,nickNames){
 	socket.on('message',function(mes){
-		socket.broadcast.to(room).emit('message',{ 
+		socket.broadcast.to(mes.room).emit('message',{ 
 			text: nickNames[socket.id]+' : '+ mes.text 
 		});
 	});
 }
 
 //加入/创建房间 
-function roomRoomJoin(socket){
-	socket.on('join',function(mes){
+function handleRoomJoin(socket){
+	socket.on('join',function(room){
 		socket.leave(currentRoom[socket.id]);
-		joinRoom(socket,mes.newRoom);
+		joinRoom(socket,room.newRoom);
+		console.log('Join '+room.newRoom);
 	});
 }
 
@@ -109,7 +114,6 @@ exports.listen = function(server){
 	io.sockets.on('connection',function(socket){
 		//用户连接时，给其分配一个昵称
 		guestNumber = assignGuestName(socket,guestNumber,nickNames,nameUsed);
-		
 		//用户连接时，使其加入room:Cong J, 并处理相应的逻辑
 		joinRoom(socket,'Cong J');
 		handleMessageBroadcasting(socket,nickNames);
@@ -118,7 +122,11 @@ exports.listen = function(server){
 
 		//socket收到rooms请求时，返回房间列表
 		socket.on('rooms',function(){
-			socket.emit('rooms', io.socket.manager.rooms);
+			var rooms = Object.keys(io.of('/').adapter.rooms);
+			var result = rooms.filter(function(room){
+				return (room.length<16)
+			})
+			socket.emit('rooms',result);
 		})
 
 		handleClientDisconnetion(socket,nickNames,nameUsed);

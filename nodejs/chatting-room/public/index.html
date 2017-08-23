@@ -1,20 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<meta charset="utf-8">
 	<title>chatting-room</title>
 	<link rel="stylesheet" type="text/css" href="./stylesheet/style.css">
 	<script type="text/javascript" src="./javascript/chat.js"></script>
 	<script type="text/javascript" src="./javascript/chat_ui.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="/socket.io/socket.io.js"></script>
 </head>
 <body>
 	<div id="container">
-		<label id="room-name">room name</label>
+		<label id="room-name"></label>
 		<div id="clearfix">
 			<div id="chat-area">
 			</div>
 			<div id="room-list">
-				<p>Cong J</p>			
 			</div>
 		</div>
 		<form>
@@ -22,8 +23,8 @@
 			<button>Send</button>
 		</form>
 		<ul>Chat commands
-			<li>Change nickname: /nick {username}</li>
-			<li>Join / Create room: /room {roomname}</li>
+			<li>Change nickname: /nick [username]</li>
+			<li>Join / Create room: /room [roomname]</li>
 		</ul>
 	</div>
 </body>

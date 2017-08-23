@@ -11,6 +11,7 @@ Chat.prototype.sendMessage = function(room,text){
 }
 
 Chat.prototype.changeRoom = function(room){
+	console.log(room);
 	this.socket.emit('join',{
 		newRoom:room
 	});
@@ -19,8 +20,8 @@ Chat.prototype.changeRoom = function(room){
 Chat.prototype.processCommand = function(command){
 	var words = command.split(' ');
 	var command = words[0]
-				  .substring(1,words[0]
-				  .length-1).toLowerCase();
+				  .substring(1,words[0].length)
+				  .toLowerCase();			  
 	var mes = false;
 	switch(command){
 		case 'room':
@@ -31,9 +32,8 @@ Chat.prototype.processCommand = function(command){
 		case 'nick':
 		words.shift();
 		var name = words.join(' ');
-		this.socket.emitter.emit('nameAttempt',name)
+		this.socket.emit('nameAttempt',name)
 		break;
-
 		default:
 		mes = 'Unrecognized command.';
 		break;
