@@ -6,6 +6,8 @@ const cache = {};
 
 const port = 8080;
 
+const chatServer = require('./lib/chat_server');
+
 //当文件不存在时，返回错误状态码404
 function fileNotFound(response){
 	response.writeHead(404,{'Content-Type':'text/plain'});
@@ -53,3 +55,5 @@ var server = http.createServer(function(req,res){
 	var abspath = './'+filepath;
 	serveStatic(res,cache,abspath);
 }).listen(port)
+
+chatServer.listen(server);
