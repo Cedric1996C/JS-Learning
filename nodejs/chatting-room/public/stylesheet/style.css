@@ -8,7 +8,46 @@ body {
   width: 80%;
   margin: 0 auto;
   margin-top: 20px;
-  padding: 10px;
-  background-color: red; }
+  padding: 10px; }
+  #container #room-name {
+    display: inline-block;
+    width: 100%;
+    text-indent: 1em;
+    background-color: #dcdcdc; }
+  #container #chat-area {
+    float: left;
+    margin-top: 20px;
+    width: 80%;
+    height: 400px;
+    background-color: #dcdcdc; }
+  #container #room-list {
+    float: right;
+    margin-top: 20px;
+    width: 18%;
+    height: 400px; }
+    #container #room-list p {
+      display: inline-block;
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      text-indent: 1em; }
+  #container form {
+    position: relative;
+    height: 30px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 10px;
+    padding: 5px; }
+    #container form input {
+      width: 70%; }
+
+#clearfix {
+  zoom: 1; }
+  #clearfix::before, #clearfix::after {
+    content: "";
+    display: table; }
+  #clearfix::after {
+    clear: both;
+    overflow: hidden; }
 
 /*# sourceMappingURL=style.css.map */
