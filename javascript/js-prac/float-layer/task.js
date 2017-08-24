@@ -34,49 +34,57 @@ function closeLayer(){
 	layer.style.display = 'none';
 }
 
-var dragLayer = function(dom){
- 	var isDrag = false;
+var dragLayer = function(getDrag){
+ 	var dragObject = null;
 	var disX = 0;
 	var disY = 0;
 
 	function down(e){
-		if(e.target.className == 'model-title'||'model-header'){
-            if( !isDrag ){
-            	isDrag = true;
-				disX = e.clientX - dom.offsetLeft;
-				disY = e.clientY - dom.offsetTop;
-				console.log(dom.offsetLeft, dom.offsetTop);
-			}
+		dragObject = getDrag(e);
+		if(dragObject != null){
+			disX = e.clientX - dragObject.offsetLeft;
+			disY = e.clientY - dragObject.offsetTop;
 		}
 	}
 
 	function move(e){
-		if( isDrag ){
-			console.log(e.clientX, e.clientY);
-			dom.style.left = (e.clientX-disX)+'px';
-			dom.style.top = (e.clientY-disY)+'px';
+		if( dragObject ){
+			dragObject.style.left = (e.clientX-disX)+'px';
+			dragObject.style.top = (e.clientY-disY)+'px';
 		}
 	}
 
 	function up(e){
 		disX = 0;
 		disY = 0;
-		isDrag = false;
+		dragObject = null;
 	}
 
 	return {
 		enable:function(){
-			addEvent(dom,'mouseup',up);
-			addEvent(dom,'mousedown',down);
-			addEvent(dom,'mousemove',move);
+			addEvent(document,'mouseup',up);
+			addEvent(document,'mousedown',down);
+			addEvent(document,'mousemove',move);
 		},
 		disable:function(){
-			removeEvent(dom,'mouseup',up);
-			removeEvent(dom,'mousedown',down);
-			removeEvent(dom,'mousemove',move);
+			removeEvent(document,'mouseup',up);
+			removeEvent(document,'mousedown',down);
+			removeEvent(document,'mousemove',move);
 		}
 	}
 
+}
+
+function getDrag(e){
+	var target = e.target;
+	while(target && target.className.indexOf("dialog")==-1){
+		target = target.offsetParent;
+	}
+	if(target!=null){
+        return target.offsetParent;
+    }else{
+        return null;
+    }
 }
 
 function init(){
@@ -84,7 +92,7 @@ function init(){
 	for(index in closeBtn){
 		 addEvent(closeBtn[index],'click',closeLayer);
 	}
-	dragLayer(model).enable();
+	dragLayer(getDrag).enable();
 }
 
 init();
