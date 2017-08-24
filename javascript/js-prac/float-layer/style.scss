@@ -1,11 +1,111 @@
+* {
+	font: 1em 'Microsoft YaHei';
+	margin: 0;
+	padding: 0;
+	box-sizing:border-box;
+}
+
 button {
+	padding: 10px 16px;
+	text-align: center;
+	cursor: pointer;
+	border-radius: 5px;
+	border:1px solid transparent;
+	background-color: #337ab7;
+	color: #fff;
+	font-size: 16px;
+	outline: 0;
+
+	&:hover {
+		background-color: #286090;
+	}
+}
+
+#pop {
 	position: relative;
 	display: block;
 	height: 40px;
-	width: 80px;
-
+	width: 120px;
+	
 	top: 20px;
 	margin:0 auto;
-
 	border:1px solid #ccc;
+}
+
+#floatLayer {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top:0;
+	left:0;
+	z-index: 1;
+	display: none;
+
+	.mask {
+		position: absolute;
+		width:100%;
+		height:100%;
+		background-color: #888;
+		opacity: .5;
+	}
+	
+}
+
+.model {
+	position: fixed;
+	width: 600px;
+	height: 300px;
+	top: 50%;
+	left: 50%;
+
+	border: 1px solid #ccc;
+	box-shadow:0 0 3px #111;
+	border-radius: 10px;
+	background-color: #fff;
+	outline: 0;
+	z-index: 1000;
+	transform: translate(-50%,-50%);
+
+	.model-header {
+		height: 20%;
+		border-bottom: 1px solid rgba(0,0,0,.2);
+		padding: 20px;
+		
+		h3 {
+			padding: 0;
+		}
+
+		button {
+			float: right;
+			padding: 0;
+			background-color: #fff;
+			color: #ccc;
+
+			&:hover {
+				color: #000;
+				opacity: .5;
+			}
+
+			span {
+				font-size: 1.2em;
+			}
+		}
+	}
+
+	.model-body {
+		height: 60%;
+		padding: 20px;
+		border-bottom: 1px solid rgba(0,0,0,.2);
+	}
+
+	.model-footer {
+		height: 20%;
+
+		button {
+			float:right;
+			padding: 8px;
+			margin: 10px;
+		}
+	}
+
 }
