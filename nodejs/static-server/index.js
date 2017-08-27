@@ -48,3 +48,14 @@ function show(res){
 	items.forEach(res.write(item));
 	res.end();
 }
+
+function notFound(res){
+	res.statusCode = 404;
+	res.end('Not Found');
+}
+
+function badRequest(res){
+	res.statusCode = 400;
+	res.end('Bad Request');
+}
+
