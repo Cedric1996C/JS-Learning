@@ -19,7 +19,7 @@ function tree(array){
 			var len = base;
 			base = 0;
 			for(var i=0;i<len;i++){
-				if(array[0]==='#'){
+				if(array[0]==='#'||array[0]===undefined){
 					nodes[0].left = null
 				} else {
 					nodes[0].left = new node(array[0]);
@@ -27,7 +27,7 @@ function tree(array){
 					nodes.push(nodes[0].left);
 				}
 				array.shift();
-				if(array[0]==='#'){
+				if(array[0]==='#'||array[0]===undefined){
 					nodes[0].right = null
 				} else {
 					nodes[0].right = new node(array[0]);
