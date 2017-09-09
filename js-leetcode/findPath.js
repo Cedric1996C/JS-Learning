@@ -4,7 +4,7 @@ function FindPath(root, expectNumber)
 {
 	var result = [];
     if(root === null)
-        return []
+        return [];
     if(root.val === expectNumber && judge(root)){
         result.push([root.val]);
     } else if(root.val < expectNumber){
