@@ -1,0 +1,3 @@
+[submodule "newPullRequest"]
+	path = newPullRequest
+	url = https://github.com/NJUcong/JS-Learning
