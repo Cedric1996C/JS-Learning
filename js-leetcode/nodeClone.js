@@ -6,29 +6,33 @@ function RandomListNode(x){
 
 function Clone(pHead)
 {
-    if(pHead === null)
+    if(!pHead)
 		return null;
-	if(pHead.next == null)
-        return new RandomListNode(pHead.label);
-	var temp = pHead;
-    while(pHead.next!==null){
-    	var nNode = new RandomListNode(pHead.label);
-    	nNode.next= pHead.next;
-    	pHead.next = nNode;
-    	pHead = nNode.next;
+	var current = pHead;
+    while(current){
+    	var nNode = new RandomListNode(current.label);
+    	nNode.next= current.next;
+    	current.next = nNode;
+    	current = nNode.next;
     }
-    pHead = temp;
-    var nHead = pHead.next;
-    temp = nHead;
-    while(pHead !== null){
-    	nHead.random = pHead.random;
-    	pHead.next = null;
-    	pHead = nHead.next;
-    	if(nHead.next!==null){
-	    	nHead.next = pHead.next;
-	    }
+    current = pHead;
+   	while(current){
+   		var nNode = current.next;
+   		if(current.random){
+   			nNode.random = current.random.next
+   		}
+   		current=nNode.next;
+   	}
+ 
+   	var nHead = pHead.next;
+    var current = nHead;
+    while(current.next){
+    	pHead.next = current.next;
+        current.next = pHead.next.next;
+        pHead = pHead.next;
+        current = current.next;
     }
-    return temp;
+    return nHead;
 }
 
 module.exports = {
