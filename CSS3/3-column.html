@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>3-column</title>
+    <style type="text/css">
+        div {
+            box-sizing: border-box;
+            /*padding: 10px;*/
+        }
+        #wrapper {
+            background-color: #ccc;
+            width: 960px;
+            height: 300px;
+            margin: 0 auto;
+            padding: 10px;
+        }
+        #left {
+            background-color: red;
+            width: 60%;
+            height: 100%;
+            float: left;
+            margin-right: 10px;
+        }
+        #right {
+            background-color: yellow;
+            width: 40%;
+            /*margin-right: 10px;*/
+            height: 100%;
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="left"></div>
+        <div id="right">
+            <div id="top"></div>
+            <div id="bottom"></div>
+        </div>
+    </div>
+</body>
+</html>
